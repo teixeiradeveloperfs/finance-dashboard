@@ -44,7 +44,7 @@ export const useDashboardData = () => {
     { name: 'Inter', type: 'Conta corrente', amount: 'R$ 8.250,30', badge: 'in', color: '#F97316' },
     { name: 'Mercado Pago', type: 'Conta corrente', amount: 'R$ 5.450,20', badge: 'mp', color: '#0EA5E9' },
     { name: 'Stripe', type: 'Conta empresarial', amount: 'R$ 24.180,64', badge: 's', color: '#635BFF' },
-    { name: 'Carteira', type: 'Dinheiro', amount: 'R$ 29.970,00', badge: 'R$', color: '#22C55E' }
+    { name: 'Carteira', type: 'Dinheiro', amount: 'R$ 29.970,00', badge: 'R$', color: '#03C494' }
   ]
 
   const projects: DashboardProject[] = [
@@ -64,7 +64,7 @@ export const useDashboardData = () => {
   ]
 
   const categoryLegend: DashboardLegendItem[] = [
-    { name: 'Entretenimento', value: '46%', color: '#22C55E' },
+    { name: 'Entretenimento', value: '46%', color: '#03C494' },
     { name: 'Plataformas', value: '56%', color: '#EF4444' },
     { name: 'Compras', value: '48%', color: '#F97316' },
     { name: 'Alimentacao', value: '63%', color: '#0EA5E9' }

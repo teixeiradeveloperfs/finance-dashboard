@@ -18,7 +18,7 @@ defineProps<{
         <span class="row-main single"><strong>{{ project.name }}</strong></span>
         <strong>{{ project.amount }}</strong>
         <em :class="{ positive: project.positive, negative: !project.positive }">{{ project.trend }}</em>
-        <span class="chevron"></span>
+        <Icon name="lucide:chevron-right" class="ui-icon small muted" />
       </li>
     </ul>
   </article>

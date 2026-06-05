@@ -24,14 +24,16 @@ defineProps<{
           <span v-for="account in accounts.slice(0, 4)" :key="account.name" :style="{ backgroundColor: account.color }">
             {{ account.badge }}
           </span>
-          <button type="button" aria-label="Adicionar conta">+</button>
+          <button type="button" aria-label="Adicionar conta">
+            <Icon name="lucide:plus" class="ui-icon small" />
+          </button>
         </div>
       </div>
       <button class="soft-button" type="button">Ver contas</button>
     </article>
 
     <article class="metric-card panel">
-      <span class="metric-icon green"><span class="icon wallet-icon"></span></span>
+      <span class="metric-icon green"><Icon name="lucide:wallet-cards" class="ui-icon" /></span>
       <p class="card-label">Receitas do mes</p>
       <strong class="metric-value">R$ 16.281,48</strong>
       <p class="comparison"><span class="trend positive">+9,8%</span> comparado ao mes anterior</p>
@@ -42,7 +44,7 @@ defineProps<{
     </article>
 
     <article class="metric-card panel">
-      <span class="metric-icon red"><span class="icon receipt-icon"></span></span>
+      <span class="metric-icon red"><Icon name="lucide:receipt-text" class="ui-icon" /></span>
       <p class="card-label">Despesas do mes</p>
       <strong class="metric-value">R$ 6.638,72</strong>
       <p class="comparison"><span class="trend negative">-8,6%</span> comparado ao mes anterior</p>
@@ -53,7 +55,7 @@ defineProps<{
     </article>
 
     <article class="metric-card panel">
-      <span class="metric-icon purple"><span class="icon trend-icon"></span></span>
+      <span class="metric-icon purple"><Icon name="lucide:trending-up" class="ui-icon" /></span>
       <p class="card-label">Lucro do mes</p>
       <strong class="metric-value">R$ 9.642,76</strong>
       <p class="comparison"><span class="trend positive">+18,6%</span> comparado ao mes anterior</p>
@@ -66,7 +68,10 @@ defineProps<{
     <article class="panel category-card">
       <div class="section-heading">
         <h2>Todas as despesas</h2>
-        <button class="select-button" type="button">Mes atual <span class="chevron"></span></button>
+        <button class="select-button" type="button">
+          Mes atual
+          <Icon name="lucide:chevron-down" class="ui-icon small" />
+        </button>
       </div>
       <div class="expense-tabs">
         <span><small>Diarias</small><strong>R$ 682,20</strong></span>

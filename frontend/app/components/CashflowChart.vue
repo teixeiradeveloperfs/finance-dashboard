@@ -8,7 +8,10 @@
           <span class="legend-dot red-dot"></span>Despesas
         </div>
       </div>
-      <button class="select-button" type="button">Ultimos 12 meses <span class="chevron"></span></button>
+      <button class="select-button" type="button">
+        Ultimos 12 meses
+        <Icon name="lucide:chevron-down" class="ui-icon small" />
+      </button>
     </div>
 
     <div class="cashflow-chart">

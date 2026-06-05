@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <article class="panel whatsapp-card">
-    <span class="side-icon whatsapp-large"></span>
+    <span class="side-icon whatsapp-large"><Icon name="lucide:message-circle" class="ui-icon" /></span>
     <h2>Lancamentos via WhatsApp</h2>
     <p>Envie suas receitas e despesas pelo WhatsApp que nossa IA registra automaticamente.</p>
     <div class="phone-box">

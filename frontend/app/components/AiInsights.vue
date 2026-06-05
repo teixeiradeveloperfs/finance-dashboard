@@ -1,6 +1,6 @@
 <template>
   <article class="panel ai-card">
-    <span class="side-icon ai-icon">AI</span>
+    <span class="side-icon ai-icon"><Icon name="lucide:sparkles" class="ui-icon" /></span>
     <h2>IA Financeira</h2>
     <div class="insight-box">
       <p>Identifiquei 3 lancamentos recorrentes que podem ser automatizados.</p>
