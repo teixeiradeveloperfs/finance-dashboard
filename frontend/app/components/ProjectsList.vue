@@ -12,7 +12,8 @@ defineProps<{
       <h2>Projetos</h2>
       <button type="button">Ver todos</button>
     </div>
-    <ul class="rows-list">
+    <p v-if="!projects.length" class="empty-state compact">Nenhum projeto cadastrado.</p>
+    <ul v-else class="rows-list">
       <li v-for="project in projects" :key="project.name">
         <span class="row-badge" :style="{ backgroundColor: project.color }"></span>
         <span class="row-main single"><strong>{{ project.name }}</strong></span>

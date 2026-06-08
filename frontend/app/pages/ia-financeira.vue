@@ -1,5 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'IA Financeira | Dashboard Financeiro' })
+
+const { transactions, categoryLegend } = useDashboardData()
 </script>
 
 <template>
@@ -16,15 +18,17 @@ useHead({ title: 'IA Financeira | Dashboard Financeiro' })
     </section>
 
     <section class="page-grid two">
-      <AiInsights />
+      <AiInsights :category-legend="categoryLegend" :transactions="transactions" />
       <article class="panel management-card">
         <div class="section-heading compact">
           <h2>Automacoes sugeridas</h2>
         </div>
-        <div class="settings-list">
-          <div><span>OpenAI - Assinatura</span><em>Recorrente mensal</em></div>
-          <div><span>Stripe - Venda mensal</span><em>Classificar como receita</em></div>
-          <div><span>Digital Ocean</span><em>Classificar como hospedagem</em></div>
+        <p v-if="!transactions.length" class="empty-state compact">Nenhuma transacao cadastrada para sugerir automacoes.</p>
+        <div v-else class="settings-list">
+          <div v-for="transaction in transactions.slice(0, 3)" :key="`${transaction.description}-${transaction.date}`">
+            <span>{{ transaction.description }}</span>
+            <em>{{ transaction.category }}</em>
+          </div>
         </div>
       </article>
     </section>

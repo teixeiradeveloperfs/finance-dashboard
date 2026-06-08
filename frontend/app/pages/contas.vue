@@ -28,16 +28,6 @@ const { accounts } = useDashboardData()
       </article>
     </section>
 
-    <section class="panel management-card">
-      <div class="section-heading compact">
-        <h2>Sincronizacao bancaria</h2>
-        <button type="button">Configurar</button>
-      </div>
-      <div class="settings-list">
-        <div><span>Nubank</span><em>Sincronizado ha 2 min</em></div>
-        <div><span>Inter</span><em>Sincronizado hoje</em></div>
-        <div><span>Stripe</span><em>Webhook ativo</em></div>
-      </div>
-    </section>
+    <p v-if="!accounts.length" class="panel empty-state">Nenhuma conta cadastrada ainda.</p>
   </DashboardPageShell>
 </template>

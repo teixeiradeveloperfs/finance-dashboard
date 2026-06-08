@@ -22,24 +22,14 @@ const { categoryLegend } = useDashboardData()
         <div class="section-heading compact">
           <h2>Despesas por categoria</h2>
         </div>
-        <ul class="legend-list category-page-list">
+        <p v-if="!categoryLegend.length" class="empty-state compact">Nenhuma categoria com despesa cadastrada.</p>
+        <ul v-else class="legend-list category-page-list">
           <li v-for="item in categoryLegend" :key="item.name">
             <span :style="{ backgroundColor: item.color }"></span>
             {{ item.name }}
             <strong>{{ item.value }}</strong>
           </li>
         </ul>
-      </article>
-
-      <article class="panel category-management-card">
-        <div class="section-heading compact">
-          <h2>Regras automaticas</h2>
-        </div>
-        <div class="settings-list">
-          <div><span>Stripe</span><em>Receita recorrente</em></div>
-          <div><span>OpenAI</span><em>Ferramentas</em></div>
-          <div><span>Digital Ocean</span><em>Hospedagem</em></div>
-        </div>
       </article>
     </section>
   </DashboardPageShell>

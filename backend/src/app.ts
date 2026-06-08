@@ -4,6 +4,7 @@ import Fastify from 'fastify'
 import { env, isProduction } from './config/env.js'
 import authPlugin from './plugins/auth.js'
 import { authRoutes } from './routes/auth.js'
+import { dashboardRoutes } from './routes/dashboard.js'
 import { healthRoutes } from './routes/health.js'
 
 export async function buildApp() {
@@ -25,6 +26,7 @@ export async function buildApp() {
   await app.register(authPlugin)
   await app.register(healthRoutes)
   await app.register(authRoutes)
+  await app.register(dashboardRoutes)
 
   app.setErrorHandler((error, _request, reply) => {
     app.log.error(error)

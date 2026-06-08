@@ -13,7 +13,8 @@ defineProps<{
       <button type="button">Ver todas</button>
     </div>
     <div class="table-wrap">
-      <table>
+      <p v-if="!transactions.length" class="empty-state compact">Nenhuma movimentacao cadastrada.</p>
+      <table v-else>
         <thead>
           <tr>
             <th>Descricao</th>

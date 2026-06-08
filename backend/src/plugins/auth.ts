@@ -7,17 +7,20 @@ import { supabase } from '../lib/supabase.js'
 export default fp(async (app) => {
   app.decorate('requireAuth', async (request: FastifyRequest, reply: FastifyReply) => {
     const accessToken = getSignedCookie(request, env.AUTH_COOKIE_NAME)
+    const refreshToken = getSignedCookie(request, env.AUTH_REFRESH_COOKIE_NAME)
 
     if (accessToken) {
       const { data, error } = await supabase.auth.getUser(accessToken)
 
       if (!error && data.user) {
         request.user = data.user
+        request.authTokens = {
+          accessToken,
+          refreshToken: refreshToken || undefined
+        }
         return
       }
     }
-
-    const refreshToken = getSignedCookie(request, env.AUTH_REFRESH_COOKIE_NAME)
 
     if (refreshToken) {
       const { data, error } = await supabase.auth.refreshSession({
@@ -27,6 +30,10 @@ export default fp(async (app) => {
       if (!error && data.session?.access_token && data.session.refresh_token && data.user) {
         setAuthCookies(reply, data.session.access_token, data.session.refresh_token)
         request.user = data.user
+        request.authTokens = {
+          accessToken: data.session.access_token,
+          refreshToken: data.session.refresh_token
+        }
         return
       }
     }

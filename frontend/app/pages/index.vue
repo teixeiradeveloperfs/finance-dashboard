@@ -31,11 +31,12 @@ const {
     <DashboardMetricCards
       :accounts="accounts"
       :category-legend="categoryLegend"
+      :transactions="transactions"
     />
 
     <section class="content-grid">
       <div class="main-column">
-        <CashflowChart />
+        <CashflowChart :transactions="transactions" />
 
         <section class="list-grid">
           <AccountsList :accounts="accounts" />
@@ -47,7 +48,7 @@ const {
 
       <aside class="side-column">
         <WhatsappLauncher :command-examples="commandExamples" />
-        <AiInsights />
+        <AiInsights :category-legend="categoryLegend" :transactions="transactions" />
       </aside>
     </section>
   </DashboardPageShell>
