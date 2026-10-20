@@ -2,8 +2,6 @@
 
 Dashboard financeiro full-stack com frontend em Nuxt 4, API em Fastify e integração preparada para Supabase.
 
-![Dashboard](docs/screenshots/01-dashboard.png)
-
 ## Visão geral
 
 - Dashboard de saldo, receitas, despesas e lucro;
@@ -67,11 +65,26 @@ O passo a passo de produção está em [docs/DEPLOY.md](docs/DEPLOY.md). Ele cob
 
 ## Telas
 
-| Tela | Captura |
-| --- | --- |
-| Dashboard | [01-dashboard.png](docs/screenshots/01-dashboard.png) |
-| Contas | [02-contas.png](docs/screenshots/02-contas.png) |
-| Transações | [03-transacoes.png](docs/screenshots/03-transacoes.png) |
-| Projetos | [04-projetos.png](docs/screenshots/04-projetos.png) |
-| Relatórios | [05-relatorios.png](docs/screenshots/05-relatorios.png) |
-| Configurações | [06-configuracoes.png](docs/screenshots/06-configuracoes.png) |
+### Dashboard
+
+![Dashboard](docs/screenshots/01-dashboard.png)
+
+### Contas
+
+![Contas](docs/screenshots/02-contas.png)
+
+### Transações
+
+![Transações](docs/screenshots/03-transacoes.png)
+
+### Projetos
+
+![Projetos](docs/screenshots/04-projetos.png)
+
+### Relatórios
+
+![Relatórios](docs/screenshots/05-relatorios.png)
+
+### Configurações
+
+![Configurações](docs/screenshots/06-configuracoes.png)
