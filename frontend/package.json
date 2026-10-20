@@ -7,6 +7,7 @@
     "dev": "TMPDIR=/tmp nuxt dev --dotenv .env.development",
     "generate": "nuxt generate --dotenv .env.production",
     "preview": "nuxt preview --dotenv .env.production",
+    "start": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {

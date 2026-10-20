@@ -1,4 +1,5 @@
 import fp from 'fastify-plugin'
+import type { User } from '@supabase/supabase-js'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { env } from '../config/env.js'
 import { getSignedCookie, setAuthCookies } from '../lib/auth-cookies.js'
@@ -8,6 +9,22 @@ export default fp(async (app) => {
   app.decorate('requireAuth', async (request: FastifyRequest, reply: FastifyReply) => {
     const accessToken = getSignedCookie(request, env.AUTH_COOKIE_NAME)
     const refreshToken = getSignedCookie(request, env.AUTH_REFRESH_COOKIE_NAME)
+
+    if (env.LOCAL_DEMO_AUTH && accessToken === 'local-demo-access') {
+      request.user = {
+        id: '00000000-0000-0000-0000-000000000001',
+        email: env.DEMO_EMAIL,
+        user_metadata: {
+          name: 'Usuário Demo',
+          role: 'Administrador'
+        }
+      } as unknown as User
+      request.authTokens = {
+        accessToken,
+        refreshToken: refreshToken || undefined
+      }
+      return
+    }
 
     if (accessToken) {
       const { data, error } = await supabase.auth.getUser(accessToken)

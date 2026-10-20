@@ -1,0 +1,39 @@
+name: Deploy production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: finance-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script_stop: true
+          script: |
+            set -e
+            cd "${{ secrets.DEPLOY_PATH }}"
+            git fetch origin main
+            git reset --hard origin/main
+
+            cd backend
+            pnpm install --frozen-lockfile
+            pnpm build
+
+            cd ../frontend
+            pnpm install --frozen-lockfile
+            pnpm build
+
+            cd ..
+            pm2 reload ecosystem.config.cjs --update-env
+            curl --fail --silent --show-error http://127.0.0.1:3333/health

@@ -36,7 +36,6 @@ async function handleLogin() {
   <main class="auth-shell">
     <section class="auth-card panel">
       <div class="auth-brand">
-        <img class="brand-mark" src="/logo.png" alt="" aria-hidden="true" />
         <h1>Entre na sua conta</h1>
       </div>
 

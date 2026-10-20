@@ -34,6 +34,27 @@ export const authRoutes: FastifyPluginAsync = async (app) => {
       })
     }
 
+    if (env.LOCAL_DEMO_AUTH) {
+      if (parsedBody.data.email !== env.DEMO_EMAIL || parsedBody.data.password !== env.DEMO_PASSWORD) {
+        return reply.code(401).send({
+          message: 'Credenciais invalidas.'
+        })
+      }
+
+      setAuthCookies(reply, 'local-demo-access', 'local-demo-refresh')
+
+      return reply.send({
+        user: {
+          id: '00000000-0000-0000-0000-000000000001',
+          email: env.DEMO_EMAIL,
+          user_metadata: {
+            name: 'Usuário Demo',
+            role: 'Administrador'
+          }
+        }
+      })
+    }
+
     const { data, error } = await supabase.auth.signInWithPassword(parsedBody.data)
 
     if (error || !data.session) {

@@ -8,6 +8,9 @@ const envSchema = z.object({
   SUPABASE_URL: z.string().url(),
   SUPABASE_ANON_KEY: z.string().min(1),
   COOKIE_SECRET: z.string().min(32),
+  LOCAL_DEMO_AUTH: z.coerce.boolean().default(false),
+  DEMO_EMAIL: z.string().email().default('demo@finance.local'),
+  DEMO_PASSWORD: z.string().min(8).default('Finance@123'),
   AUTH_COOKIE_NAME: z.string().default('af_access_token'),
   AUTH_REFRESH_COOKIE_NAME: z.string().default('af_refresh_token'),
   PASSWORD_RESET_REDIRECT_URL: z.string().url().optional()

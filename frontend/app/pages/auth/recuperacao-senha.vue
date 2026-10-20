@@ -36,7 +36,6 @@ async function handleRecoverPassword() {
   <main class="auth-shell">
     <section class="auth-card panel">
       <div class="auth-brand">
-        <img class="brand-mark" src="/logo.png" alt="" aria-hidden="true" />
         <h1>Receba o link de acesso</h1>
       </div>
 

@@ -1,4 +1,5 @@
 import type { FastifyPluginAsync } from 'fastify'
+import { env } from '../config/env.js'
 import { createSupabaseClient } from '../lib/supabase.js'
 
 type AccountRow = {
@@ -62,6 +63,34 @@ export const dashboardRoutes: FastifyPluginAsync = async (app) => {
       return reply.code(401).send({
         message: 'Sessao invalida ou expirada.'
       })
+    }
+
+    if (env.LOCAL_DEMO_AUTH) {
+      return {
+        accounts: [
+          { name: 'Conta principal', type: 'Conta corrente', amount: 'R$ 12.480,00', badge: 'cp', color: '#03C494' },
+          { name: 'Cartão corporativo', type: 'Cartão de crédito', amount: 'R$ 3.240,50', badge: 'cc', color: '#0EA5E9' }
+        ],
+        projects: [
+          { name: 'Operação mensal', amount: 'R$ 8.920,00', trend: '+12,5%', positive: true, color: '#03C494' },
+          { name: 'Marketing', amount: '- R$ 1.840,00', trend: '-4,2%', positive: false, color: '#F59E0B' }
+        ],
+        transactions: [
+          { description: 'Recebimento de cliente', category: 'Receita', project: 'Operação mensal', account: 'Conta principal', type: 'Receita', value: '+ R$ 5.800,00', date: '15/07/2024', positive: true },
+          { description: 'Assinatura de software', category: 'Software', project: 'Operação mensal', account: 'Cartão corporativo', type: 'Despesa', value: '- R$ 420,00', date: '14/07/2024', positive: false },
+          { description: 'Campanha digital', category: 'Marketing', project: 'Marketing', account: 'Conta principal', type: 'Despesa', value: '- R$ 980,00', date: '12/07/2024', positive: false }
+        ],
+        categoryLegend: [
+          { name: 'Marketing', value: '42%', color: '#F59E0B' },
+          { name: 'Software', value: '28%', color: '#0EA5E9' },
+          { name: 'Operacional', value: '30%', color: '#03C494' }
+        ],
+        commandExamples: [
+          { text: 'R$ 5.800,00', detail: 'Recebimento de cliente', tag: 'Receita', positive: true },
+          { text: 'R$ 420,00', detail: 'Assinatura de software', tag: 'Despesa', positive: false },
+          { text: 'R$ 980,00', detail: 'Campanha digital', tag: 'Despesa', positive: false }
+        ]
+      }
     }
 
     const supabase = createSupabaseClient(accessToken)

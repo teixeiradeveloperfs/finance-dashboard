@@ -90,22 +90,6 @@ button {
   padding: 12px;
 }
 
-.sidebar-brand {
-  min-height: 118px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 8px;
-  border-radius: 16px;
-  text-decoration: none;
-}
-
-.sidebar-logo {
-  width: 126px;
-  height: 126px;
-  display: block;
-  object-fit: contain;
-}
-
 .sidebar-nav {
   display: grid;
   gap: 6px;
@@ -188,18 +172,6 @@ button {
 .brand-block {
   gap: 16px;
   min-width: 0;
-}
-
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  flex: 0 0 auto;
-  display: block;
-  object-fit: contain;
-}
-
-.topbar-logo {
-  display: none;
 }
 
 .eyebrow,
@@ -1434,11 +1406,6 @@ tbody tr:last-child td {
   font-weight: 600;
 }
 
-.auth-brand .brand-mark {
-  width: 168px;
-  height: 168px;
-}
-
 .auth-form {
   display: grid;
   gap: 16px;
@@ -1566,10 +1533,6 @@ tbody tr:last-child td {
     padding: 10px;
   }
 
-  .sidebar-brand {
-    display: none;
-  }
-
   .sidebar-nav {
     display: flex;
     gap: 8px;
@@ -1672,15 +1635,6 @@ tbody tr:last-child td {
     grid-column: 1;
     grid-row: 1;
     gap: 10px;
-  }
-
-  .topbar-logo {
-    display: block;
-  }
-
-  .brand-mark {
-    width: 48px;
-    height: 48px;
   }
 
   .search-box {
@@ -1872,11 +1826,6 @@ tbody tr:last-child td {
 
   .auth-brand {
     margin-bottom: 26px;
-  }
-
-  .auth-brand .brand-mark {
-    width: 138px;
-    height: 138px;
   }
 
   .auth-brand h1 {

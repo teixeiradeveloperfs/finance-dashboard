@@ -17,10 +17,6 @@ const isActiveRoute = (path: string) => path === '/' ? route.path === '/' : rout
 
 <template>
   <aside class="dashboard-sidebar panel" aria-label="Navegacao principal">
-    <NuxtLink class="sidebar-brand" to="/" aria-label="Ir para dashboard">
-      <img class="sidebar-logo" src="/logo.png" alt="" aria-hidden="true" />
-    </NuxtLink>
-
     <nav class="sidebar-nav">
       <NuxtLink
         v-for="item in navigationItems"

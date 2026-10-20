@@ -23,7 +23,6 @@ async function handleLogout() {
 <template>
   <header class="topbar panel">
     <div class="brand-block">
-      <img class="brand-mark topbar-logo" src="/favicon.ico" alt="" aria-hidden="true" />
       <div>
         <p class="eyebrow">Bom dia, {{ userName }}</p>
         <h1>Aqui esta o resumo financeiro da sua empresa hoje.</h1>
